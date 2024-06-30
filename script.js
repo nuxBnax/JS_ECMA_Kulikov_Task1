@@ -49,11 +49,9 @@ console.log(incrementFn.self());
 
 function findElementByClass(rootElement, findClass) {
 	if (rootElement.className === findClass) {
-		console.log(rootElement, ' попало в цель');
 		return rootElement;
 	}
 	for (let item of rootElement.children) {
-		console.log(item);
 		let find = findElementByClass(item, findClass);
 		if (find) {
 			return find;
