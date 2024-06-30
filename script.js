@@ -2,7 +2,7 @@
 // найти минимальное число в массиве, решение задание должно состоять из одной
 // строки кода.
 
-const arr = [1,5,7,9];
+const arr = [1, 5, 7, 9];
 console.log(Math.min(...arr));
 
 
@@ -24,7 +24,7 @@ function createCounter(initialValue) {
 	function self() {
 		return counter;
 	}
-	return { increment, decrement, self};
+	return { increment, decrement, self };
 }
 
 const incrementFn = createCounter(6);
@@ -46,21 +46,21 @@ console.log(incrementFn.self());
 
 // const rootElement = document.getElementById('root');
 
-// console.log(rootElement);
 
-// const myEl = document.querySelector('.my-class');
-// console.log(myEl.children[0].className);
+function findElementByClass(rootElement, findClass) {
+	if (rootElement.className === findClass) {
+		console.log(rootElement, ' попало в цель');
+		return rootElement;
+	}
+	for (let item of rootElement.children) {
+		console.log(item);
+		let find = findElementByClass(item, findClass);
+		if (find) {
+			return find;
+		}
+	}
+}
 
-// function findelementByClass(rootElement, findClass) {
-// 	if (rootElement.className === findClass) {
-// 		return rootElement;
-// 	} else {
-// 		console.log(rootElement.children[0]);
-// 		return findElementByClass(rootElement.children[0], findClass);
-		
-// 	}
-// }
-// const findClass = 'my-class';
-// const targetElement = findelementByClass(rootElement, findClass);
-
-// console.log(targetElement);
+const rootElement = document.getElementById('root');
+const targetElement = findElementByClass(rootElement, 'my-class');
+console.log(targetElement);
